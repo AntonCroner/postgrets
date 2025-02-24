@@ -4,25 +4,27 @@
 	"description": "Template library for Typescript.",
 	"author": "Utily Contributors",
 	"license": "MIT",
-	"repository": "https://github.com/utily/library-template",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/utily/library-template.git"
+	},
 	"bugs": {
 		"url": "https://github.com/utily/library-template/issues"
 	},
 	"homepage": "https://github.com/utily",
 	"private": false,
 	"type": "module",
-	"main": "./dist/cjs/index.js",
 	"module": "./dist/mjs/index.js",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
 		".": {
 			"import": {
-				"default": "./dist/mjs/index.js",
-				"types": "./dist/types/index.d.ts"
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/mjs/index.js"
 			},
 			"require": {
-				"default": "./dist/cjs/index.js",
-				"types": "./dist/types/index.d.ts"
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/cjs/index.js"
 			}
 		}
 	},
@@ -42,17 +44,20 @@
 		"clean": "rimraf dist node_modules coverage",
 		"verify": "npm run build && npm run test && npm run lint && npm audit"
 	},
+	"overrides": {
+		"esbuild": ">=0.25.0"
+	},
 	"devDependencies": {
 		"@types/node": "^22.10.2",
 		"@typescript-eslint/eslint-plugin": "8.18.1",
 		"@typescript-eslint/parser": "8.18.1",
-		"@vitest/coverage-v8": "^2.1.8",
+		"@vitest/coverage-v8": "^2.1.9",
 		"eslint": "^8.56.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
 		"rimraf": "^6.0.1",
 		"typescript": "5.7.2",
-		"vitest": "^2.1.8"
+		"vitest": "^2.1.9"
 	}
 }
